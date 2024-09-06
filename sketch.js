@@ -115,12 +115,12 @@ function onePlayer(){
 
   //  DESENHANDO A RAQUETE DIREITA
   rect(xRBar,yRBar,wRBar,hRBar)
-  if(velYBall>0){
+  if(velYBall>0&&yRBar<height-hRBar){
     velYRBar = 2.95
     if(velXBall<0){
       velYRBar = 2.7
     }
-  }else if(velYBall<0){
+  }else if(velYBall<0&&yRBar<height-hRBar){
     velYRBar = -2.95
     if(velXBall<0){
       velYRBar = -2.7
