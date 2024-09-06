@@ -115,18 +115,22 @@ function onePlayer(){
 
   //  DESENHANDO A RAQUETE DIREITA
   rect(xRBar,yRBar,wRBar,hRBar)
-  if(velYBall>0&&yRBar<height-hRBar){
+  if(velYBall>0){
     velYRBar = 2.95
     if(velXBall<0){
       velYRBar = 2.7
     }
-  }else if(velYBall<0&&yRBar<height-hRBar){
+  }else if(velYBall<0){
     velYRBar = -2.95
     if(velXBall<0){
       velYRBar = -2.7
     }
   }
-  yRBar += velYRBar
+  if(yRBar<height&&yRBar>0){
+    yRBar += velYRBar
+  }else{
+    velYRBar *=-1
+  }
   
   
   //  VERIFICA COLISAO RAQUETE ESQUERDA
