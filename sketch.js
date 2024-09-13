@@ -117,17 +117,15 @@ function onePlayer(){
   rect(xRBar,yRBar,wRBar,hRBar)
   if(yRBar>0 && yRBar<height+hRBar){
     yRBar += velYRBar
-  }
+  }/*
   if(yRBar===0 || yRBar===height+hRBar){
     yRBar -= velYRBar
-  }
-  /*
+  }*/
   if(velYBall>0){
     velYRBar = 3
   }else if(velYBall<0){
     velYRBar = -3
   }
-  */
   
   
   //  VERIFICA COLISAO RAQUETE ESQUERDA
