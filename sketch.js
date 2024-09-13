@@ -122,9 +122,9 @@ function onePlayer(){
     yRBar -= velYRBar
   }
   if(velYBall > 0){
-    velYRBar = 1
+    velYRBar = 1.8
   }else if(velYBall < 0){
-    velYRBar = -1
+    velYRBar = -1.8
   }
   
   
