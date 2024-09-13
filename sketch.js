@@ -118,7 +118,7 @@ function onePlayer(){
   if(yRBar>0 && yRBar<height-hRBar){
     yRBar += velYRBar
   }
-  if(yRBar===0 || yRBar===height-hRBar){
+  if(yRBar<==0 || yRBar>==height-hRBar){
     yRBar -= velYRBar
   }
   if(velYBall > 0){
