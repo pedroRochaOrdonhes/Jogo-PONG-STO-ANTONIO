@@ -121,6 +121,11 @@ function onePlayer(){
   if(yRBar===0 || yRBar===height-hRBar){
     yRBar -= velYRBar
   }
+  if(yBall > 0){
+    velYRBar = 1
+  }else if(yBall < 0){
+    velYRBar = -1
+  }
   
   
   //  VERIFICA COLISAO RAQUETE ESQUERDA
