@@ -3,47 +3,35 @@ let xBall = 200;
 let yBall = 200;
 let d = 16;
 let r = d / 2;
-
 let velXBall = 2;
 let velYBall = 2;
-
 //  VARIAVEIS DA RAQUETE ESQUERDA
 let xLBar = 5;
 let yLBar = 150;
 let wLBar = 7;
 let hLBar = 80;
-
 //  VARIAVEIS DA RAQUETE DIREITA
 let xRBar = 588;
 let yRBar = 200;
 let wRBar = 7;
 let hRBar = 80;
-
 let velYRBar = 2;
-
 //  VARIAVEIS DE PONTOS
 let pointsLBar = 0
 let pointsRBar = 0
 let pointsLBarX = 40
 let pointsRBarX = 540
 let pointsBarY = 40
-
 //  COLISAO BOLINHA
 let colidiuL = false
 let colidiuR = false
-
 //  QUANTIDADE DE JOGADORES
 players = 0
-
-
-
 function preload(){
   soundBar = loadSound("raquetada.mp3")
   soundPoint = loadSound("ponto.mp3")
   soundGame = loadSound("trilha.mp3")
 }
-
-
 //  FUNÇÕES
 function setup() {
   createCanvas(600, 400);
@@ -76,17 +64,14 @@ function selectPlayer(){
     players = 2
   }
 }
-
 function onePlayer(){
   //  DESENHANDO A BOLINHA
   background("rgba(67,101,255,0.8)");
   circle(xBall, yBall, d);
   noStroke();
-
   //  MOVENDO A BOLINHA
   xBall += velXBall;
   yBall += velYBall;
-
   
   //  VERIFICA COLISAO BOLINHA
   if (yBall >= height - r || yBall <= 0 + r) {
@@ -112,20 +97,20 @@ function onePlayer(){
     yLBar+=3
   }
   
-
   //  DESENHANDO A RAQUETE DIREITA
   rect(xRBar,yRBar,wRBar,hRBar)
-  if(yRBar===0 || yRBar===height-hRBar){
-    yRBar -= velYRBar
+  if(velYBall>0){
+    velYRBar = 2.95
+    if(velXBall<0){
+      velYRBar = 2.7
+    }
+  }else if(velYBall<0){
+    velYRBar = -2.95
+    if(velXBall<0){
+      velYRBar = -2.7
+    }
   }
-  if(yBall > 0){
-  if(velYBall > 0){
-    velYRBar = 1
-  }else if(yBall < 0){
-  }else if(velYBall < 0){
-    velYRBar = -1
-  }
-
+  yRBar += velYRBar
   
   
   //  VERIFICA COLISAO RAQUETE ESQUERDA
@@ -157,11 +142,9 @@ function twoPlayers(){
   background("rgba(67,101,255,0.8)");
   circle(xBall, yBall, d);
   noStroke();
-
   //  MOVENDO A BOLINHA
   xBall += velXBall;
   yBall += velYBall;
-
   
   //  VERIFICA COLISAO BOLINHA
   if (yBall >= height - r || yBall <= 0 + r) {
@@ -184,7 +167,6 @@ function twoPlayers(){
     yLBar+=3
   }
   
-
   //  DESENHANDO A RAQUETE DIREITA
   rect(xRBar,yRBar,wRBar,hRBar)
     if (keyIsDown(UP_ARROW)&&yRBar>0) {
